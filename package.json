@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "name": "transform-class-private-properties",
+  "description": "A Babel transform to convert pseudo-private \"underscore convention\" private class properties to truly private properties.",
+  "keywords": [
+    "babel",
+    "babel-plugin",
+    "transform",
+    "babel-transform",
+    "class",
+    "private",
+    "properties"
+  ],
+  "main": "./lib/index.js",
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^4.1.8",
+    "babel-helper-plugin-test-runner": "^6.8.0",
+    "babel-register": "^6.9.0",
+    "eslint": "^1.3.1"
+  },
+  "scripts": {
+    "_clean": "rm -rf lib",
+    "prepublish": "npm run lint && npm run _build && npm run _test",
+    "build": "npm run lint && npm run _build",
+    "_build": "npm run _clean && babel src -d lib",
+    "test": "npm run lint && npm run _test",
+    "_test": "mocha --compilers js:babel-register",
+    "test:watch": "npm run test -- --watch",
+    "lint": "eslint src"
+  },
+  "author": {
+    "name": "Donavon West",
+    "email": "email@donavon.com",
+    "url": "http://donavon.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-syntax-class-properties": "^6.8.0",
+    "babel-runtime": "^6.9.1",
+    "babel-types": "^6.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/donavon/transform-class-private-properties.git"
+  },
+  "bugs": {
+    "url": "https://github.com/donavon/transform-class-private-properties/issues"
+  },
+  "homepage": "https://github.com/donavon/transform-class-private-properties"
+}
